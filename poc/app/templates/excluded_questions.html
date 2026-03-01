@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excluded Questions - {{ document.filename }}</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body class="page-chunks">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+          <div class="logo-box">CC</div>
+          <div class="brand-copy">
+            <p class="brand-title">Context Challengers</p>
+            <p class="brand-subtitle">Quality Console</p>
+          </div>
+        </div>
+        <nav class="side-nav">
+          <a class="nav-link" href="/">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="nav-icon-svg">
+                <path d="M3 11.5L12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M6 10.5V20h12v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="nav-text">{{ tr.get('common.home', 'Home') }}</span>
+          </a>
+          <a class="nav-link" href="/documents/{{ document.id }}">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="nav-icon-svg">
+                <path d="M4 19V8h16v11H4z" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M8 14h2M12 14h4M8 11h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="nav-text">{{ tr.get('common.dashboard', 'Dashboard') }}</span>
+          </a>
+          <a class="nav-link" href="/documents/{{ document.id }}/chunks">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="nav-icon-svg">
+                <path d="M4 7l8-4 8 4-8 4-8-4zM4 12l8 4 8-4M4 17l8 4 8-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="nav-text">{{ tr.get('common.chunks', 'Chunks') }}</span>
+          </a>
+          <a class="nav-link active" href="/documents/{{ document.id }}/excluded-questions">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="nav-icon-svg">
+                <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M8 10h8M8 14h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="nav-text">Excluded</span>
+          </a>
+        </nav>
+        <div class="sidebar-foot">
+          <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle sidebar">||</button>
+        </div>
+      </aside>
+
+      <div class="main-area">
+        <header class="topbar">
+          <p class="topbar-title">Excluded Questions</p>
+          <div class="topbar-right">
+            <form method="get" class="lang-form">
+              <label for="langSelectExcluded">{{ tr.get('common.language', 'Language') }}</label>
+              <select id="langSelectExcluded" name="lang" onchange="this.form.submit()">
+                {% for code, label in languages.items() %}
+                  <option value="{{ code }}" {% if code == lang %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+              </select>
+            </form>
+            <a class="btn btn-secondary" href="/documents/{{ document.id }}">{{ tr.get('chunk.back', 'Back to dashboard') }}</a>
+          </div>
+        </header>
+
+        <main class="container">
+          <section class="doc-context card">
+            <p class="context-label">Reviewer exclusion memory for this document</p>
+            <h2>{{ document.filename }}</h2>
+            <p class="context-meta">
+              Document ID: <code>{{ document.id }}</code> | Stored exclusions: <strong>{{ exclusions|length }}</strong>
+            </p>
+          </section>
+
+          <section class="panel card">
+            <div class="panel-head">
+              <h2>Excluded question keys</h2>
+              <p>
+                Removing an exclusion here allows similar questions to appear again on future reruns.
+              </p>
+            </div>
+            <div class="table-wrap">
+              <table class="docs-table">
+                <thead>
+                  <tr>
+                    <th>Question</th>
+                    <th>Question key</th>
+                    <th>Reason</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th>{{ tr.get('common.action', 'Action') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in exclusions %}
+                    <tr>
+                      <td>{{ row.question_text or '-' }}</td>
+                      <td><code>{{ row.question_key }}</code></td>
+                      <td>{{ row.note or '-' }}</td>
+                      <td>{{ (row.created_at or '-')[:19].replace('T', ' ') if row.created_at else '-' }}</td>
+                      <td>{{ (row.updated_at or '-')[:19].replace('T', ' ') if row.updated_at else '-' }}</td>
+                      <td>
+                        <form action="/documents/{{ document.id }}/excluded-questions/{{ row.id }}/delete" method="post" onsubmit="return confirm('Remove this exclusion key? It may reappear in future reruns.');">
+                          <button type="submit" class="btn btn-secondary">Delete exclusion</button>
+                        </form>
+                      </td>
+                    </tr>
+                  {% else %}
+                    <tr>
+                      <td colspan="6">
+                        <div class="empty-state">
+                          <p>No stored exclusions for this document.</p>
+                        </div>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

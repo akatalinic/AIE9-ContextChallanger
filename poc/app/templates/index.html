@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Context Challengers PoC</title>
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body class="page-home">
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+          <div class="logo-box">CC</div>
+          <div class="brand-copy">
+            <p class="brand-title">Context Challengers</p>
+            <p class="brand-subtitle">Quality Console</p>
+          </div>
+        </div>
+        <nav class="side-nav">
+          <a class="nav-link active" href="/">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="nav-icon-svg">
+                <path d="M3 11.5L12 4l9 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M6 10.5V20h12v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="nav-text">{{ tr.get('common.home', 'Home') }}</span>
+          </a>
+        </nav>
+        <div class="sidebar-foot">
+          <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle sidebar">||</button>
+        </div>
+      </aside>
+
+      <div class="main-area">
+        <header class="topbar">
+          <p class="topbar-title">{{ tr.get('common.home', 'Home') }}</p>
+          <div class="topbar-right">
+            <form method="get" class="lang-form">
+              <label for="langSelectHome">{{ tr.get('common.language', 'Language') }}</label>
+              <select id="langSelectHome" name="lang" onchange="this.form.submit()">
+                {% for code, label in languages.items() %}
+                  <option value="{{ code }}" {% if code == lang %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+              </select>
+            </form>
+            <span class="pill">{{ tr.get('common.poc', 'PoC') }}</span>
+          </div>
+        </header>
+
+        <main class="container">
+          <section class="hero card">
+            <div>
+              <h1>{{ tr.get('home.title', 'Document validation dashboard') }}</h1>
+              <p>{{ tr.get('home.subtitle', 'Upload PDF/DOCX and run AI pipeline for generated questions, grounded answers, and issue classification.') }}</p>
+            </div>
+          </section>
+
+          <section class="panel card">
+            <div class="panel-head">
+              <h2>{{ tr.get('home.upload_title', 'Upload document') }}</h2>
+              <p>{{ tr.get('home.upload_subtitle', 'Supported formats: PDF and DOCX') }}</p>
+            </div>
+            <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+              <input
+                type="file"
+                name="file"
+                accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                required
+              />
+              <button type="submit" class="btn btn-primary">{{ tr.get('home.upload_btn', 'Upload') }}</button>
+            </form>
+          </section>
+
+          <section class="panel card">
+            <div class="panel-head">
+              <h2>{{ tr.get('home.docs_title', 'Documents') }}</h2>
+              <p>{{ tr.get('home.docs_subtitle', 'Track status, generated questions, and problematic answers.') }}</p>
+            </div>
+            <div class="table-wrap">
+              <table class="docs-table">
+                <thead>
+                  <tr>
+                    <th>{{ tr.get('home.filename', 'Filename') }}</th>
+                    <th>{{ tr.get('common.status', 'Status') }}</th>
+                    <th>{{ tr.get('home.chunks', 'Chunks') }}</th>
+                    <th>{{ tr.get('home.questions', 'Questions') }}</th>
+                    <th>{{ tr.get('home.problems', 'Problems') }}</th>
+                    <th>{{ tr.get('common.created', 'Created') }}</th>
+                    <th>{{ tr.get('common.action', 'Action') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for doc in documents %}
+                    <tr>
+                      <td class="filename">{{ doc.filename }}</td>
+                      <td><span class="badge badge-{{ doc.status }}">{{ doc.status }}</span></td>
+                      <td>{{ doc.chunk_count }}</td>
+                      <td>{{ doc.question_count }}</td>
+                      <td>{{ doc.problematic_count }}</td>
+                      <td>{{ doc.created_at[:19].replace('T', ' ') if doc.created_at else '-' }}</td>
+                      <td>
+                        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                          <a class="btn btn-secondary" href="/documents/{{ doc.id }}">{{ tr.get('home.open_dashboard', 'Open dashboard') }}</a>
+                          <form action="/documents/{{ doc.id }}/delete" method="post" onsubmit="return confirm('Delete this job and all related runs/results?');">
+                            <button type="submit" class="btn btn-secondary">Delete</button>
+                          </form>
+                        </div>
+                      </td>
+                    </tr>
+                  {% else %}
+                    <tr>
+                      <td colspan="7">
+                        <div class="empty-state">
+                          <p>{{ tr.get('home.empty_docs', 'No documents uploaded yet.') }}</p>
+                        </div>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

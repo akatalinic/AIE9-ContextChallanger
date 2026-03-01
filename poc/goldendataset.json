@@ -1,0 +1,255 @@
+{
+  "replace_existing": false,
+  "references": [
+    {
+      "question": "When do the new StreamPlus prices take effect?",
+      "reference": "The new StreamPlus prices take effect on 1 September 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "As of which date was the StreamPlus price increase announced?",
+      "reference": "The price increase is stated as of 15 July 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Through whose invoices are StreamPlus options billed in this notice?",
+      "reference": "They are billed through GlobalConnect invoices. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Which option categories are affected by the StreamPlus price change?",
+      "reference": "The change applies to additional options on fixed and mobile services and to upgrade options. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Will existing users be informed about the price change?",
+      "reference": "Yes. Existing users will be notified of the change. This is explicitly stated in the provided StreamPlus notice, specifically in the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "When will the first invoices with the new StreamPlus prices be issued?",
+      "reference": "The first invoices with the new prices will be issued in October 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What usage period do the first updated invoices reflect?",
+      "reference": "They reflect September 2026 usage. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Do the listed StreamPlus prices include VAT?",
+      "reference": "Yes. All listed prices include VAT. This is explicitly stated in the provided StreamPlus notice, specifically in the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Does annual inflation indexation apply to StreamPlus packages?",
+      "reference": "No. Annual inflation indexation does not apply to StreamPlus packages. This is explicitly stated in the provided StreamPlus notice, specifically in the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What is the start date of the activation notification window?",
+      "reference": "The activation notification window starts on 1 August 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What is the end date of the activation notification window?",
+      "reference": "The activation notification window ends on 1 September 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Which users receive a notice confirming consent to the new price?",
+      "reference": "Users who activate options affected by the price change between 1 August 2026 and 1 September 2026 receive the notice. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What does the activation notice confirm?",
+      "reference": "It confirms user consent to the price increase effective 1 September 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Is StreamPlus account recovery available to both fixed and mobile users?",
+      "reference": "Yes. Account recovery is available for all fixed and mobile service users. This is explicitly stated in the provided StreamPlus notice, specifically in the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Which self-service portal is listed for StreamPlus account recovery?",
+      "reference": "The MyGlobal portal is listed. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Since when is StreamPlus recovery available on the MyGlobal portal?",
+      "reference": "It is available since 10 March 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Which mobile app supports StreamPlus recovery?",
+      "reference": "The GlobalConnect mobile application supports StreamPlus recovery. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Since when is StreamPlus recovery available in the GlobalConnect mobile app?",
+      "reference": "It is available since 12 March 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "How is the recovery link delivered to mobile service users?",
+      "reference": "Mobile users receive the link via SMS to the number associated with the StreamPlus service. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "How is the recovery link delivered to fixed service users?",
+      "reference": "Fixed users receive the link via email to the address linked to their GlobalConnect ID. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Where does the recovery link redirect the user?",
+      "reference": "It redirects the user to the StreamPlus recovery or registration page. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Can fixed users complete the process through digital service assistance?",
+      "reference": "Yes. Fixed users can also complete the process through digital service assistance (DSA). This is explicitly stated in the provided StreamPlus notice, specifically in the relevant section of the StreamPlus notice.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What error do some active StreamPlus subscribers see?",
+      "reference": "The reported error is: \"The activation link is no longer valid.\" This information is stated in the provided StreamPlus notice and should be interpreted within the relevant section of the StreamPlus notice.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Under what condition does the activation-link error occur?",
+      "reference": "It occurs after re-suspension when users attempt to re-register. This information is stated in the provided StreamPlus notice and should be interpreted within the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What is the current status of the re-suspension issue?",
+      "reference": "The issue is currently under investigation. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Can affected users re-register through GlobalConnect before the issue is resolved?",
+      "reference": "No. Affected users cannot re-register their StreamPlus account through GlobalConnect until the issue is resolved. This is explicitly stated in the provided StreamPlus notice, specifically in the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What action is promised after the re-registration issue is fixed?",
+      "reference": "New registration links will be sent once the issue is fixed. This information is stated in the provided StreamPlus notice and should be interpreted within the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Since when has StreamPlus been included in the GlobalConnect offer?",
+      "reference": "StreamPlus has been included in the GlobalConnect offer since 5 May 2026. This information is stated in the provided StreamPlus notice and should be interpreted within the relevant section of the StreamPlus notice.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "How is StreamPlus described in the document?",
+      "reference": "StreamPlus is described as a streaming platform for movies, series, live events, documentaries, and exclusive content. This information is stated in the provided StreamPlus notice and should be interpreted within the relevant section of the StreamPlus notice.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Does the StreamPlus description mention advertisements?",
+      "reference": "It states the content can be watched without advertisements. This information is stated in the provided StreamPlus notice and should be interpreted within the relevant section of the StreamPlus notice.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "On which ConnectTV device path can users access StreamPlus?",
+      "reference": "Via ConnectTV Android receiver in Main Menu -> \"Home\" -> \"Apps\". This information is stated in the provided StreamPlus notice and should be interpreted within the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Are smart TVs listed as supported devices for StreamPlus?",
+      "reference": "Yes. Smart TVs are listed under other supported devices. This is explicitly stated in the provided StreamPlus notice, specifically in the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Are mobile phones listed as supported devices for StreamPlus?",
+      "reference": "Yes. Mobile phones are listed under other supported devices. This is explicitly stated in the provided StreamPlus notice, specifically in the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Are tablets listed as supported devices for StreamPlus?",
+      "reference": "Yes. Tablets are listed under other supported devices. This is explicitly stated in the provided StreamPlus notice, specifically in the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Are laptops and desktop computers listed as supported StreamPlus devices?",
+      "reference": "Yes. Laptops and desktop computers are listed as supported devices. This is explicitly stated in the provided StreamPlus notice, specifically in the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Can users watch StreamPlus on gaming consoles?",
+      "reference": "Yes, on gaming consoles with a supported StreamPlus app. This information is stated in the provided StreamPlus notice and should be interpreted within the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Which StreamPlus package tiers are explicitly mentioned?",
+      "reference": "The document explicitly mentions Basic, Standard, and Premium StreamPlus packages. This information is stated in the provided StreamPlus notice and should be interpreted within the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Are StreamPlus packages offered as add-ons on top of tariffs?",
+      "reference": "Yes. They are available as add-on options on top of listed tariffs. This is explicitly stated in the provided StreamPlus notice, specifically in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Is the Mini tariff eligible for StreamPlus add-ons?",
+      "reference": "Yes. Mini is listed as eligible in standalone and Flex variants. This is explicitly stated in the provided StreamPlus notice, specifically in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Is the Smart tariff eligible for StreamPlus add-ons?",
+      "reference": "Yes. Smart is listed as eligible in standalone and Flex variants. This is explicitly stated in the provided StreamPlus notice, specifically in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Is the Pro tariff eligible for StreamPlus add-ons?",
+      "reference": "Yes. Pro is listed as eligible in standalone and Flex variants. This is explicitly stated in the provided StreamPlus notice, specifically in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Is the Max tariff eligible for StreamPlus add-ons?",
+      "reference": "Yes. Max is listed as eligible in standalone and Flex variants. This is explicitly stated in the provided StreamPlus notice, specifically in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Is the Unlimited Data tariff eligible for StreamPlus add-ons?",
+      "reference": "Yes. Unlimited Data tariff is listed as eligible in standalone and Flex variants. This is explicitly stated in the provided StreamPlus notice, specifically in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "What is the exact monthly price of the StreamPlus Basic package after 1 September 2026?",
+      "reference": "The document does not specify this detail in the available text. So this value cannot be confirmed from the provided StreamPlus notice; check the detailed terms in the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "How many simultaneous streams are included in each StreamPlus package?",
+      "reference": "The document does not specify this detail in the available text. So this value cannot be confirmed from the provided StreamPlus notice; check the detailed terms in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Does the document define a contract duration required for all tariffs with StreamPlus?",
+      "reference": "The document does not specify this detail in the available text. So this value cannot be confirmed from the provided StreamPlus notice; check the detailed terms in the tariff and package-eligibility section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Which exact countries are supported for StreamPlus viewing?",
+      "reference": "The document does not specify this detail in the available text. So this value cannot be confirmed from the provided StreamPlus notice; check the detailed terms in the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Does the document state whether 4K video is included in Premium?",
+      "reference": "The document does not specify this detail in the available text. So this value cannot be confirmed from the provided StreamPlus notice; check the detailed terms in the availability and supported-device section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Does the document provide an SLA or resolution deadline for the re-suspension issue?",
+      "reference": "No specific SLA or resolution deadline is provided; the document only states that the issue is under investigation. This indicates status visibility but no committed resolution timeline in the account recovery and incident section.",
+      "source": "not_a_real_service_OK.docx"
+    },
+    {
+      "question": "Does the notice mention that the price increase affects both fixed and mobile services?",
+      "reference": "Yes. It explicitly says the change applies to fixed and mobile services. This is explicitly stated in the provided StreamPlus notice, specifically in the price-change and billing timeline section.",
+      "source": "not_a_real_service_OK.docx"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+fastapi==0.115.7
+uvicorn[standard]==0.34.0
+jinja2==3.1.5
+python-multipart==0.0.20
+python-docx==1.1.2
+pdfplumber==0.11.5
+numpy==2.2.2
+openai==1.60.2
+python-dotenv==1.0.1
+tiktoken==0.8.0
+ragas>=0.2.10,<0.3
+langchain>=0.3.15,<0.4
+langchain-openai>=0.3.0,<0.4
+langchain-qdrant>=0.2.0,<0.3
+langchain-text-splitters>=0.3.5,<0.4
+qdrant-client>=1.13.0,<2

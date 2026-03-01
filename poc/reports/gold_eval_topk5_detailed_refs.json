@@ -1,0 +1,77 @@
+{
+  "document_id": null,
+  "source_file": "templatedata/not_a_real_service_OK.docx",
+  "retrieval_document_id": "gold-file:0ddbd176d17ffb61",
+  "document_filename": "not_a_real_service_OK.docx",
+  "gold_file": "goldendataset.json",
+  "question_count": 50,
+  "chunk_count": 4,
+  "chunk_source": "file",
+  "top_k": 5,
+  "mode": "both",
+  "results": {
+    "baseline": {
+      "metrics": {
+        "context_recall": 0.8599999999999999,
+        "context_precision": 0.9636444443765291,
+        "faithfulness": 0.9426666666666665,
+        "factual_correctness": 0.46520000000000006,
+        "answer_relevancy": 0.7555270177326423,
+        "context_entity_recall": 0.6956666629672779,
+        "noise_sensitivity": 0.307047619047619,
+        "missing_metrics": [],
+        "metric_set_complete": true,
+        "dataset_meta": {
+          "sample_count": 50,
+          "gold_reference_count": 50,
+          "canonical_reference_count": 0,
+          "evidence_reference_count": 0,
+          "retrieved_context_reference_count": 0,
+          "question_fallback_reference_count": 0,
+          "avg_contexts_per_sample": 4.18,
+          "empty_context_sample_count": 0,
+          "samples_with_evidence_count": 50,
+          "avg_evidence_citations_per_sample": 1.2,
+          "reference_min_confidence": 0.8
+        }
+      },
+      "duration_ms": 871960.7880999974
+    },
+    "parent": {
+      "metrics": {
+        "context_recall": 0.8566666666666666,
+        "context_precision": 0.9638333332880875,
+        "faithfulness": 0.9693333333333334,
+        "factual_correctness": 0.5034000000000001,
+        "answer_relevancy": 0.7851477456309776,
+        "context_entity_recall": 0.6323333300256111,
+        "noise_sensitivity": 0.2817142857142857,
+        "missing_metrics": [],
+        "metric_set_complete": true,
+        "dataset_meta": {
+          "sample_count": 50,
+          "gold_reference_count": 50,
+          "canonical_reference_count": 0,
+          "evidence_reference_count": 0,
+          "retrieved_context_reference_count": 0,
+          "question_fallback_reference_count": 0,
+          "avg_contexts_per_sample": 3.7,
+          "empty_context_sample_count": 0,
+          "samples_with_evidence_count": 50,
+          "avg_evidence_citations_per_sample": 1.14,
+          "reference_min_confidence": 0.8
+        }
+      },
+      "duration_ms": 846559.9998999969
+    }
+  },
+  "deltas": {
+    "context_recall": -0.0033333333333332993,
+    "context_precision": 0.000188888911558438,
+    "faithfulness": 0.02666666666666684,
+    "factual_correctness": 0.03820000000000001,
+    "answer_relevancy": 0.029620727898335253,
+    "context_entity_recall": -0.06333333294166676,
+    "noise_sensitivity": -0.02533333333333332
+  }
+}
