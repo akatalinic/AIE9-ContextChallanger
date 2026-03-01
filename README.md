@@ -27,6 +27,7 @@ Agentic RAG PoC for pre-release documentation quality validation before chatbot 
 
 ```bash
 cd poc
+uv venv --python 3.12      
 uv sync
 ```
 
