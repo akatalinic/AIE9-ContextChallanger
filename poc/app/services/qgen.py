@@ -1,4 +1,4 @@
-﻿import logging
+import logging
 import os
 import re
 from typing import Any
@@ -16,9 +16,7 @@ QGEN_STRICT_ANSWERABLE_ONLY = str(os.getenv("QGEN_STRICT_ANSWERABLE_ONLY", "1"))
     "1",
     "true",
     "yes",
-    "no"
     "on",
-    "false"
 }
 try:
     QGEN_TEMPERATURE = float(os.getenv("QGEN_TEMPERATURE", "0.0"))
@@ -75,7 +73,6 @@ AFTER_TEMPORAL_PATTERN = re.compile(
     re.IGNORECASE,
 )
 SENTENCE_SPLIT_PATTERN = re.compile(r"[.\n;]+")
-PACKAGE_CONTEXT_PATTERN = re.compile(r"\b(packages?|plans?|tariffs?)\b", re.IGNORECASE)
 RECOVERY_CONTEXT_PATTERN = re.compile(r"\b(recovery|re-register|registration|activation link)\b", re.IGNORECASE)
 INVOICE_CONTEXT_PATTERN = re.compile(r"\b(invoice|invoices|billed|billing)\b", re.IGNORECASE)
 DATE_CONTEXT_PATTERN = re.compile(r"\b(effective|from|since|until|as of|date)\b", re.IGNORECASE)
@@ -799,7 +796,7 @@ def _fallback_questions(source_text: str, count: int) -> list[dict[str, Any]]:
             content_type = "pricing"
             hints = [keyword, "effective date", "old vs new"]
             category = "pricing"
-        elif PACKAGE_CONTEXT_PATTERN.search(source):
+        elif PACKAGE_SCOPE_PATTERN.search(source):
             question = "What StreamPlus packages are available?"
             content_type = "other"
             hints = ["packages", "availability"]

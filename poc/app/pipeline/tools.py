@@ -6,7 +6,6 @@ from typing import Any, Callable
 
 from app.config import QA_TOP_K
 from app.db import get_document
-from app.services.chunk import chunk_text
 from app.services.embed_store import search, search_parent
 from app.services.external_search import detect_external_search_hints, search_public_context
 from app.services.qa import answer_with_analysis
@@ -80,12 +79,6 @@ def invoke_tool(tool_or_func: BaseTool | Callable[..., Any], **kwargs: Any) -> A
             )
             raise
     raise TypeError(f"Unsupported tool object: {type(tool_or_func)}")
-
-
-@tool("chunk_text_tool")
-def chunk_text_tool(text: str) -> list[str]:
-    """Split refined/raw text into chunk strings suitable for retrieval indexing."""
-    return chunk_text(text)
 
 
 @tool("generate_questions_tool")

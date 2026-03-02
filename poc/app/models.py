@@ -7,7 +7,6 @@ ALLOWED_CONTENT_TYPES = {
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 }
 
-DOCUMENT_STATUSES = {"uploaded", "running", "done", "failed"}
 PROBLEM_TYPES = {"ok", "missing_info", "contradiction", "ambiguous", "formatting_issue"}
 
 
