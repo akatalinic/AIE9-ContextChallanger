@@ -110,7 +110,7 @@ Data sources:
 
 External API:
 
-- Tavily Search API (`public_search_tool`) as gated fallback only.
+- Tavily Extract API (`public_search_tool`) as gated fallback only.
 
 Interaction flow:
 
