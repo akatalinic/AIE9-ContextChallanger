@@ -84,21 +84,43 @@
             <div>
               <h1>{{ tr.get('chunk.title', 'Chunks for') }} {{ document.filename }}</h1>
               <p>{{ tr.get('chunk.total', 'Total chunks') }}: {{ chunks|length }}</p>
+              <p>
+                Source:
+                {% if chunk_source == 'parent' %}
+                  Parent docstore
+                {% else %}
+                  Parent docstore (no parent chunks stored yet)
+                {% endif %}
+              </p>
             </div>
           </section>
 
           {% for chunk in chunks %}
             <article class="panel card">
               <div class="panel-head">
-                <h2>Chunk {{ chunk.chunk_order }}</h2>
-                <p><code>{{ chunk.id }}</code></p>
+                <h2>
+                  {% if chunk_source == 'parent' %}
+                    Parent Chunk {{ chunk.chunk_order }}
+                  {% else %}
+                    Chunk {{ chunk.chunk_order }}
+                  {% endif %}
+                </h2>
+                <p>
+                  <code>
+                    {% if chunk_source == 'parent' %}parent:{% endif %}{{ chunk.id }}
+                  </code>
+                </p>
               </div>
               <pre>{{ chunk.text }}</pre>
             </article>
           {% else %}
             <section class="panel card">
               <div class="empty-state">
-                <p>{{ tr.get('chunk.empty', 'No chunks available. Run pipeline first.') }}</p>
+                {% if chunk_source == 'parent_missing' %}
+                  <p>No parent chunks available for this document yet. Run pipeline again in parent mode.</p>
+                {% else %}
+                  <p>{{ tr.get('chunk.empty', 'No chunks available. Run pipeline first.') }}</p>
+                {% endif %}
               </div>
             </section>
           {% endfor %}

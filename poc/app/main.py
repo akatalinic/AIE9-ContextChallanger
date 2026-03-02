@@ -20,6 +20,7 @@ from app.db import (
     get_document_comparison_dashboard,
     get_document_chunks,
     get_document_dashboard,
+    get_document_parent_chunks,
     get_document_questions,
     list_document_gold_references,
     list_document_reviewer_exclusions,
@@ -224,9 +225,30 @@ def chunks_view(request: Request, document_id: str):
         document_id,
         warning_message="Chunks page requested for missing document",
     )
-    chunks = get_document_chunks(document_id)
-    logger.info("Chunks page loaded | document_id=%s chunks=%s", document_id, len(chunks))
-    return _render_template("chunks.html", request, {"document": doc, "chunks": chunks})
+    chunks = get_document_parent_chunks(document_id)
+    chunk_source = "parent" if chunks else "parent_missing"
+    if not chunks:
+        logger.warning(
+            "Parent chunks unavailable for chunk page | document_id=%s",
+            document_id,
+        )
+
+    logger.info(
+        "Chunks page loaded | document_id=%s chunks=%s source=%s selected_mode=%s",
+        document_id,
+        len(chunks),
+        chunk_source,
+        str(doc.get("selected_qa_mode", "parent")).strip().lower(),
+    )
+    return _render_template(
+        "chunks.html",
+        request,
+        {
+            "document": doc,
+            "chunks": chunks,
+            "chunk_source": chunk_source,
+        },
+    )
 
 
 @app.get("/documents/{document_id}/excluded-questions")

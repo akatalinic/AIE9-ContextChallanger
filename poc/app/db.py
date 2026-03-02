@@ -627,7 +627,16 @@ def list_documents() -> list[dict[str, Any]]:
             ORDER BY d.created_at DESC
             """
         ).fetchall()
-    result = [dict(row) for row in rows]
+        result = [dict(row) for row in rows]
+        for item in result:
+            document_id = str(item.get("id", "")).strip()
+            if not document_id:
+                continue
+            parent_count_row = conn.execute(
+                "SELECT COUNT(*) AS cnt FROM retriever_parent_docs WHERE namespace = ?",
+                (parent_docstore_namespace(document_id),),
+            ).fetchone()
+            item["chunk_count"] = int((parent_count_row["cnt"] if parent_count_row else 0) or 0)
     logger.debug("Documents listed | count=%s", len(result))
     return result
 
@@ -1620,6 +1629,46 @@ def get_document_chunks(document_id: str) -> list[dict[str, Any]]:
     return result
 
 
+def get_document_parent_chunks(document_id: str) -> list[dict[str, Any]]:
+    namespace = parent_docstore_namespace(document_id)
+    keys = list_parent_docstore_keys(namespace)
+    if not keys:
+        logger.debug("Parent chunks fetched | document_id=%s chunk_count=0", document_id)
+        return []
+
+    payloads = get_parent_docstore_items(namespace, keys)
+    rows: list[dict[str, Any]] = []
+    for idx, key in enumerate(keys):
+        payload = payloads.get(key, {})
+        if not isinstance(payload, dict):
+            continue
+        text = str(payload.get("page_content", "")).strip()
+        if not text:
+            continue
+        raw_meta = payload.get("metadata", {})
+        metadata = raw_meta if isinstance(raw_meta, dict) else {}
+
+        raw_order = metadata.get("chunk_order", idx)
+        try:
+            chunk_order = int(raw_order)
+        except (TypeError, ValueError):
+            chunk_order = idx
+
+        rows.append(
+            {
+                "id": str(key),
+                "chunk_order": chunk_order,
+                "text": text,
+                "source": "parent",
+                "metadata": metadata,
+            }
+        )
+
+    rows.sort(key=lambda row: (int(row.get("chunk_order", 0)), str(row.get("id", ""))))
+    logger.debug("Parent chunks fetched | document_id=%s chunk_count=%s", document_id, len(rows))
+    return rows
+
+
 def get_document_dashboard(document_id: str, include_excluded: bool = False) -> dict[str, Any]:
     with get_conn() as conn:
         stats = conn.execute(
@@ -1646,6 +1695,11 @@ def get_document_dashboard(document_id: str, include_excluded: bool = False) -> 
             """,
             (document_id, document_id, document_id, document_id, document_id),
         ).fetchone()
+        parent_count_row = conn.execute(
+            "SELECT COUNT(*) AS cnt FROM retriever_parent_docs WHERE namespace = ?",
+            (parent_docstore_namespace(document_id),),
+        ).fetchone()
+        parent_chunk_count = int((parent_count_row["cnt"] if parent_count_row else 0) or 0)
 
         if include_excluded:
             rows = conn.execute(
@@ -1735,8 +1789,10 @@ def get_document_dashboard(document_id: str, include_excluded: bool = False) -> 
 
     readiness = compute_dashboard_readiness(answers)
 
+    resolved_chunk_count = parent_chunk_count
+
     result = {
-        "chunk_count": int(stats["chunk_count"] or 0),
+        "chunk_count": resolved_chunk_count,
         "question_count": int(stats["question_count"] or 0),
         "excluded_count": int(stats["excluded_count"] or 0),
         "problematic_count": int(stats["problematic_count"] or 0),
