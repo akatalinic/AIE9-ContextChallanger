@@ -85,6 +85,14 @@ def create_chat_completion_with_fallback(
                 logger.info("%s seed fallback applied | model=%s removing_seed", log_label, model)
                 common_kwargs.pop("seed", None)
                 continue
+            if "temperature" in common_kwargs and "temperature" in message and "unsupported" in message:
+                logger.info(
+                    "%s temperature fallback applied | model=%s removing_temperature",
+                    log_label,
+                    model,
+                )
+                common_kwargs.pop("temperature", None)
+                continue
             if (
                 token_param == "max_tokens"
                 and "max_tokens" in message

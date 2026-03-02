@@ -96,6 +96,8 @@ Rules:
 - For contradiction, cite BOTH conflicting chunks and explicitly name the conflicting values.
 - Do not choose one side when conflict exists unless the context explicitly states supersession/replacement.
 - If required detail is missing (exact date, price, scope, entity), classify as missing_info.
+- If the answer is inferable from structured time expressions in context (range/season/period notation), derive it and answer explicitly.
+- Do not classify as missing_info when the required value can be obtained by straightforward normalization of context facts.
 - If context is unclear or partially scoped, classify as ambiguous.
 - If question asks universal scope (all/always/every) but context is partial (some/may/might), classify as ambiguous.
 - For definite yes/no questions, if support is hedged (e.g. may/might/could) or not explicitly stated, use ambiguous instead of ok.

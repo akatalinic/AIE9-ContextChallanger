@@ -44,7 +44,7 @@ class AppConfig:
 def load_config() -> AppConfig:
     return AppConfig(
         readiness_threshold=_get_float("READINESS_THRESHOLD", 0.90),
-        supervisor_model=os.getenv("SUPERVISOR_MODEL", "gpt-5"),
+        supervisor_model=os.getenv("SUPERVISOR_MODEL", "gpt-5.2"),
         specialist_model=os.getenv("SPECIALIST_MODEL", "gpt-4.1-mini"),
         embedding_model=os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"),
         embedding_dimensions=_get_int("EMBEDDING_DIMENSIONS", 1536),
